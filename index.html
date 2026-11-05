@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERP Tutor IA | Aprende sistemas ERP con Odoo paso a paso</title>
+<meta name="description" content="Plataforma de aprendizaje con tutor de Inteligencia Artificial para aprender sistemas ERP y Odoo. Contenido claro, ejemplos salvadoreños, quiz y práctica interactiva.">
+<meta name="author" content="EduIA">
+<meta name="theme-color" content="#0b1f3a">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ERP Tutor IA | Aprende sistemas ERP con Odoo">
+<meta property="og:description" content="Aprende qué es un ERP, sus módulos y cómo empezar con Odoo junto a un tutor de Inteligencia Artificial.">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b1f3a'/><text y='68' x='50' font-size='54' text-anchor='middle' fill='%23ffffff' font-family='Georgia'>O</text></svg>">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<!-- Tipografías -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   VARIABLES DE MARCA
+   ============================================================ */
+:root{
+  --navy:#0b1f3a;
+  --navy-2:#123059;
+  --ink:#101828;
+  --body:#4a5768;
+  --muted:#8794a6;
+  --line:#e6eaf0;
+  --bg:#ffffff;
+  --bg-soft:#f6f8fb;
+  --bg-soft-2:#eef3f9;
+  --accent:#2563eb;
+  --accent-2:#1d4ed8;
+  --accent-soft:#e8f0fe;
+  --gold:#c9a227;
+  --teal:#0d9488;
+  --green:#16a34a;
+  --red:#dc2626;
+  --amber:#d97706;
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.08);
+  --shadow:0 8px 24px rgba(16,24,40,.08);
+  --shadow-lg:0 24px 56px rgba(11,31,58,.14);
+  --ring:0 0 0 4px rgba(37,99,235,.14);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--body);
+  background:var(--bg);
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,h5,.display-font{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  color:var(--ink);
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.2;
+}
+a{color:var(--accent);text-decoration:none;transition:.2s}
+a:hover{color:var(--accent-2)}
+::selection{background:rgba(37,99,235,.18)}
+
+/* Scrollbar de marca */
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:#f1f4f9}
+::-webkit-scrollbar-thumb{background:#c3cddb;border-radius:20px;border:3px solid #f1f4f9}
+::-webkit-scrollbar-thumb:hover{background:#9aa8bb}
+
+.container-x{width:100%;max-width:1180px;margin-inline:auto;padding-inline:24px}
+
+/* ============================================================
+   BARRA DE PROGRESO
+   ============================================================ */
+#readProgress{
+  position:fixed;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--teal));
+  z-index:2000;transition:width .1s linear;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar{
+  background:rgba(255,255,255,.82)!important;
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+  padding-block:14px;
+  transition:.3s;
+}
+.navbar.scrolled{box-shadow:0 6px 22px rgba(16,24,40,.07);padding-block:10px}
+.brand-logo{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-2) 55%,var(--accent));
+  display:grid;place-items:center;color:#fff;font-weight:800;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;
+  box-shadow:0 6px 16px rgba(11,31,58,.28);
+}
+.brand-text strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:var(--navy);font-size:17px;line-height:1.1;letter-spacing:-.02em}
+.brand-text span{display:block;font-size:11.5px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.nav-link{
+  font-weight:600;color:var(--body)!important;font-size:14.5px;
+  padding:8px 14px!important;border-radius:9px;position:relative;
+}
+.nav-link:hover{color:var(--navy)!important;background:var(--bg-soft)}
+.nav-link.active{color:var(--accent)!important;background:var(--accent-soft)}
+
+.btn-corp{
+  background:var(--navy);color:#fff;border:0;font-weight:700;font-size:14.5px;
+  padding:11px 22px;border-radius:11px;transition:.25s;
+  box-shadow:0 6px 18px rgba(11,31,58,.2);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-corp:hover{background:var(--navy-2);color:#fff;transform:translateY(-2px);box-shadow:0 12px 26px rgba(11,31,58,.26)}
+.btn-ghost{
+  background:#fff;color:var(--navy);border:1.5px solid var(--line);font-weight:700;font-size:14.5px;
+  padding:11px 22px;border-radius:11px;transition:.25s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-ghost:hover{border-color:var(--navy);color:var(--navy);background:#fff;transform:translateY(-2px)}
+.btn-accent{
+  background:var(--accent);color:#fff;border:0;font-weight:700;font-size:14.5px;
+  padding:11px 22px;border-radius:11px;transition:.25s;display:inline-flex;align-items:center;gap:8px;
+  box-shadow:0 6px 18px rgba(37,99,235,.26);
+}
+.btn-accent:hover{background:var(--accent-2);color:#fff;transform:translateY(-2px)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#0b1f3a 0%,#0f2a4e 45%,#123059 100%);
+  color:#fff;padding:96px 0 104px;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 40%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 40%,transparent 100%);
+}
+.hero::after{
+  content:'';position:absolute;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,.42),transparent 68%);
+  top:-260px;right:-180px;filter:blur(28px);
+}
+.hero .container-x{position:relative;z-index:2}
+.hero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.5rem);line-height:1.1;margin-bottom:20px}
+.hero h1 .hl{
+  background:linear-gradient(100deg,#7cb2ff,#4ade80 60%,#7cb2ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{color:#c3d2e6;font-size:clamp(1rem,1.4vw,1.16rem);max-width:620px;line-height:1.75}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#dbe6f5;font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  padding:8px 16px;border-radius:100px;margin-bottom:26px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.22);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.hero-stats{display:flex;flex-wrap:wrap;gap:38px;margin-top:44px;padding-top:34px;border-top:1px solid rgba(255,255,255,.15)}
+.hero-stats .st b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.85rem;color:#fff;font-weight:800;line-height:1.1}
+.hero-stats .st span{font-size:13px;color:#9fb3cc;font-weight:500}
+
+/* Tarjeta flotante del hero */
+.hero-panel{
+  background:rgba(255,255,255,.97);border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);padding:26px;color:var(--body);
+  border:1px solid rgba(255,255,255,.6);
+}
+.hero-panel .hp-head{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.hp-avatar{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--teal));display:grid;place-items:center;color:#fff;font-size:20px}
+.hp-line{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.hp-bubble{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:13.5px;color:var(--body);line-height:1.55}
+.hp-bubble.me{background:var(--accent);color:#fff;border-color:var(--accent);margin-left:auto}
+
+/* ============================================================
+   FRANJA DE LOGOS / CONFIANZA
+   ============================================================ */
+.trust{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:26px 0}
+.trust small{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.trust-items{display:flex;gap:44px;flex-wrap:wrap;align-items:center;justify-content:center}
+.trust-items span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.1rem;color:#9dabbd;transition:.25s}
+.trust-items span:hover{color:var(--navy)}
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+.section{padding:92px 0}
+.section-soft{background:var(--bg-soft)}
+.section-head{max-width:760px;margin:0 auto 52px;text-align:center}
+.section-head .kicker{
+  display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);padding:7px 16px;border-radius:100px;margin-bottom:16px;
+}
+.section-head h2{font-size:clamp(1.7rem,3.1vw,2.4rem);margin-bottom:16px}
+.section-head p{color:var(--body);font-size:1.06rem;margin:0}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   TARJETAS
+   ============================================================ */
+.card-corp{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;height:100%;transition:.3s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;
+}
+.card-corp::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--teal));transform:scaleX(0);transform-origin:left;transition:.4s}
+.card-corp:hover{transform:translateY(-7px);box-shadow:var(--shadow-lg);border-color:#d8e2f0}
+.card-corp:hover::before{transform:scaleX(1)}
+.icon-box{
+  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+  font-size:23px;margin-bottom:18px;background:var(--accent-soft);color:var(--accent);
+}
+.card-corp h3{font-size:1.13rem;margin-bottom:10px}
+.card-corp p{font-size:14.7px;margin:0;color:var(--body)}
+
+/* ============================================================
+   CONTENIDO DE SECCIONES (temario)
+   ============================================================ */
+.topic{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px;margin-bottom:24px;transition:.3s;
+  position:relative;
+}
+.topic:hover{box-shadow:var(--shadow);border-color:#d8e2f0}
+.topic-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap}
+.topic-num{
+  flex:0 0 auto;width:50px;height:50px;border-radius:14px;
+  background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;
+  display:grid;place-items:center;font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;font-size:1.18rem;box-shadow:0 6px 16px rgba(11,31,58,.22);
+}
+.topic-head h3{font-size:1.24rem;margin:0 0 4px}
+.topic-head .sub{font-size:13.5px;color:var(--muted);margin:0;font-weight:500}
+.topic p{font-size:15.2px}
+.topic ul{margin:14px 0 0;padding-left:0;list-style:none}
+.topic ul li{position:relative;padding-left:30px;margin-bottom:10px;font-size:15px}
+.topic ul li::before{
+  content:'\F26E';font-family:'bootstrap-icons';position:absolute;left:0;top:1px;
+  color:var(--accent);font-size:14px;
+}
+
+/* Tabla comparativa */
+.table-corp{width:100%;border-collapse:separate;border-spacing:0;font-size:14.4px;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden}
+.table-corp th{background:var(--navy);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:13px 15px;text-align:left}
+.table-corp td{padding:12px 15px;border-top:1px solid var(--line);vertical-align:top}
+.table-corp tbody tr:nth-child(even){background:var(--bg-soft)}
+.table-corp tbody tr:hover{background:var(--accent-soft)}
+
+/* Diagrama de flujo de datos */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin:22px 0}
+.flow-node{
+  flex:1;min-width:150px;background:#fff;border:1.5px solid var(--line);border-radius:14px;
+  padding:18px 16px;text-align:center;transition:.3s;cursor:default;
+}
+.flow-node:hover{border-color:var(--accent);box-shadow:var(--ring);transform:translateY(-4px)}
+.flow-node i{font-size:24px;color:var(--accent);display:block;margin-bottom:9px}
+.flow-node b{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);font-size:14.5px;margin-bottom:3px}
+.flow-node small{color:var(--muted);font-size:12.5px;line-height:1.45;display:block}
+.flow-arrow{align-self:center;color:var(--muted);font-size:19px}
+
+/* Cajas de aviso */
+.notice{border-radius:var(--radius-sm);padding:18px 20px;margin:18px 0;font-size:14.6px;display:flex;gap:14px;align-items:flex-start;border:1px solid}
+.notice i{font-size:19px;flex:0 0 auto;margin-top:2px}
+.notice.tip{background:#effaf5;border-color:#bbf0d6;color:#0f5132}
+.notice.tip i{color:var(--green)}
+.notice.warn{background:#fff8ec;border-color:#fbe0b0;color:#7a4a06}
+.notice.warn i{color:var(--amber)}
+.notice.info{background:var(--accent-soft);border-color:#c2d8fb;color:#1e3a8a}
+.notice.info i{color:var(--accent)}
+
+/* Chips */
+.chip{
+  display:inline-block;background:var(--bg-soft-2);color:var(--navy);border:1px solid var(--line);
+  border-radius:100px;padding:5px 14px;font-size:12.6px;font-weight:600;margin:0 6px 8px 0;
+}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* Mini-empresa hero strip */
+.case-strip{
+  background:linear-gradient(135deg,#0b1f3a,#123059);border-radius:var(--radius);
+  color:#fff;padding:34px;display:flex;gap:26px;flex-wrap:wrap;align-items:center;margin-bottom:26px;
+  position:relative;overflow:hidden;
+}
+.case-strip::after{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.35),transparent 70%);right:-120px;top:-130px}
+.case-strip .cs-ico{width:66px;height:66px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;font-size:29px;flex:0 0 auto}
+.case-strip h3{color:#fff;font-size:1.3rem;margin:0 0 7px;position:relative;z-index:2}
+.case-strip p{color:#c3d2e6;margin:0;font-size:14.6px;max-width:760px;position:relative;z-index:2}
+
+/* ============================================================
+   TUTOR IA (CHAT)
+   ============================================================ */
+.tutor-shell{
+  background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.tutor-top{
+  background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;
+  padding:20px 24px;display:flex;align-items:center;gap:15px;flex-wrap:wrap;
+}
+.tutor-top .tt-avatar{
+  width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--accent),var(--teal));
+  display:grid;place-items:center;font-size:21px;position:relative;flex:0 0 auto;
+}
+.tutor-top .tt-avatar::after{content:'';position:absolute;bottom:-2px;right:-2px;width:13px;height:13px;border-radius:50%;background:#4ade80;border:2.5px solid var(--navy)}
+.tutor-top b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px}
+.tutor-top small{color:#a8bdd8;font-size:12.8px}
+.tutor-status{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:12.6px;color:#bbf0d6;background:rgba(74,222,128,.13);border:1px solid rgba(74,222,128,.28);padding:6px 13px;border-radius:100px;font-weight:600}
+
+.chat-window{
+  height:430px;overflow-y:auto;padding:24px;background:var(--bg-soft);
+  display:flex;flex-direction:column;gap:16px;
+}
+.msg{display:flex;gap:11px;max-width:82%;animation:msgIn .35s cubic-bezier(.16,1,.3,1)}
+@keyframes msgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.msg .av{width:34px;height:34px;border-radius:10px;flex:0 0 auto;display:grid;place-items:center;font-size:15px}
+.msg.bot .av{background:linear-gradient(135deg,var(--accent),var(--teal));color:#fff}
+.msg.user{margin-left:auto;flex-direction:row-reverse}
+.msg.user .av{background:var(--navy);color:#fff}
+.bubble{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 17px;
+  font-size:14.6px;line-height:1.68;color:var(--body);box-shadow:var(--shadow-sm);
+}
+.msg.user .bubble{background:var(--accent);color:#fff;border-color:var(--accent)}
+.bubble b{color:var(--ink)}
+.msg.user .bubble b{color:#fff}
+.bubble ul{margin:8px 0 4px;padding-left:20px}
+.bubble li{margin-bottom:5px}
+.bubble code{background:var(--bg-soft-2);color:var(--navy);padding:1px 6px;border-radius:5px;font-size:13px}
+.bubble .mini-table{width:100%;font-size:13px;margin-top:8px;border-collapse:collapse}
+.bubble .mini-table th{background:var(--navy);color:#fff;padding:6px 9px;text-align:left;font-size:11.8px}
+.bubble .mini-table td{border:1px solid var(--line);padding:6px 9px}
+
+.typing{display:flex;gap:4px;padding:6px 2px}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:typing 1.2s infinite}
+.typing span:nth-child(2){animation-delay:.2s}
+.typing span:nth-child(3){animation-delay:.4s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+.chat-inputbar{
+  border-top:1px solid var(--line);padding:16px 20px;background:#fff;
+}
+.chat-form{display:flex;gap:11px;align-items:flex-end}
+.chat-form textarea{
+  flex:1;resize:none;border:1.5px solid var(--line);border-radius:12px;padding:12px 15px;
+  font-family:inherit;font-size:14.6px;color:var(--ink);max-height:120px;min-height:48px;
+  transition:.2s;line-height:1.55;
+}
+.chat-form textarea:focus{outline:0;border-color:var(--accent);box-shadow:var(--ring)}
+.btn-send{
+  width:48px;height:48px;border-radius:12px;border:0;background:var(--accent);color:#fff;
+  font-size:19px;display:grid;place-items:center;transition:.25s;flex:0 0 auto;
+}
+.btn-send:hover{background:var(--accent-2);transform:translateY(-2px)}
+.btn-send:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.suggest{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}
+.suggest button{
+  background:var(--bg-soft);border:1px solid var(--line);border-radius:100px;padding:7px 14px;
+  font-size:12.8px;color:var(--body);font-weight:600;transition:.22s;
+}
+.suggest button:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.chat-meta{font-size:11.8px;color:var(--muted);margin-top:11px;display:flex;align-items:center;gap:7px}
+.key-badge{font-size:11.4px;padding:3px 10px;border-radius:100px;font-weight:700}
+.key-badge.on{background:#effaf5;color:#0f5132;border:1px solid #bbf0d6}
+.key-badge.off{background:#fff8ec;color:#7a4a06;border:1px solid #fbe0b0}
+
+/* ============================================================
+   QUIZ
+   ============================================================ */
+.quiz-shell{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.quiz-head{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.quiz-head h3{color:#fff;margin:0;font-size:1.2rem}
+.quiz-head small{color:#a8bdd8}
+.quiz-score{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:10px 20px;text-align:center}
+.quiz-score b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;color:#fff;line-height:1}
+.quiz-score span{font-size:11.6px;color:#a8bdd8;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.quiz-body{padding:28px}
+.q-item{border-bottom:1px solid var(--line);padding:22px 0}
+.q-item:first-child{padding-top:0}
+.q-item:last-child{border-bottom:0;padding-bottom:0}
+.q-num{font-size:12.4px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.q-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--ink);font-size:16px;margin-bottom:15px}
+.q-opt{
+  display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;
+  padding:13px 16px;margin-bottom:10px;cursor:pointer;transition:.22s;font-size:14.6px;
+}
+.q-opt:hover{border-color:var(--accent);background:var(--accent-soft)}
+.q-opt.selected{border-color:var(--accent);background:var(--accent-soft);box-shadow:var(--ring)}
+.q-opt.correct{border-color:var(--green);background:#effaf5}
+.q-opt.wrong{border-color:var(--red);background:#fef2f2}
+.q-opt input{margin-top:4px;accent-color:var(--accent)}
+.q-opt .lbl{font-weight:700;color:var(--navy);flex:0 0 auto}
+.q-opt .fb{margin-top:7px;font-size:13.4px;font-weight:600}
+.q-opt.correct .fb{color:#0f5132}
+.q-opt.wrong .fb{color:#991b1b}
+.quiz-result{
+  margin:22px 0 0;border-radius:14px;padding:22px;text-align:center;border:1.5px dashed var(--line);
+  background:var(--bg-soft);
+}
+.quiz-result b{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;display:block;color:var(--ink);margin-bottom:5px}
+.quiz-result span{font-size:14.6px;color:var(--body)}
+
+/* ============================================================
+   PRÁCTICA
+   ============================================================ */
+.practice-shell{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+.practice-shell textarea{
+  width:100%;border:1.5px solid var(--line);border-radius:12px;padding:15px;font-family:inherit;
+  font-size:14.8px;min-height:130px;resize:vertical;transition:.2s;color:var(--ink);line-height:1.65;
+}
+.practice-shell textarea:focus{outline:0;border-color:var(--accent);box-shadow:var(--ring)}
+.sample-scenario{
+  background:var(--bg-soft);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:12px;padding:18px 20px;font-size:14.6px;margin-bottom:20px;
+}
+.sample-scenario b{color:var(--navy)}
+.sample-scenario code{background:#fff;border:1px solid var(--line);padding:2px 7px;border-radius:6px;font-size:13px}
+.fb-box{margin-top:20px;border-radius:14px;padding:22px;border:1px solid;display:none;animation:msgIn .35s}
+.fb-box.show{display:block}
+.fb-box.ok{background:#effaf5;border-color:#bbf0d6}
+.fb-box.mid{background:#fff8ec;border-color:#fbe0b0}
+.fb-box.bad{background:#fef2f2;border-color:#fecaca}
+.fb-box h4{font-size:1.05rem;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.fb-score{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.6rem;color:var(--navy)}
+.check-list{list-style:none;padding:0;margin:12px 0 0}
+.check-list li{display:flex;gap:10px;align-items:flex-start;font-size:14.4px;margin-bottom:8px}
+.check-list li i{flex:0 0 auto;margin-top:3px}
+.check-list li i.bi-check-circle-fill{color:var(--green)}
+.check-list li i.bi-x-circle-fill{color:var(--red)}
+
+/* ============================================================
+   ACORDEÓN FAQ
+   ============================================================ */
+.accordion-item{border:1px solid var(--line)!important;border-radius:var(--radius-sm)!important;margin-bottom:12px;overflow:hidden;background:#fff}
+.accordion-button{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--ink)!important;font-size:15.5px;
+  padding:19px 22px;background:#fff!important;
+}
+.accordion-button:not(.collapsed){background:var(--accent-soft)!important;color:var(--accent)!important}
+.accordion-button:focus{box-shadow:none;border-color:var(--line)}
+.accordion-body{font-size:14.8px;padding:4px 22px 22px;color:var(--body)}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta{
+  background:linear-gradient(135deg,#0b1f3a,#123059 70%,#1d4ed8);
+  border-radius:24px;padding:62px 44px;text-align:center;color:#fff;position:relative;overflow:hidden;
+}
+.cta::after{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.4),transparent 70%);top:-220px;left:-140px}
+.cta h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:16px;position:relative;z-index:2}
+.cta p{color:#c3d2e6;max-width:600px;margin:0 auto 30px;position:relative;z-index:2;font-size:1.04rem}
+.cta .btn-corp,.cta .btn-ghost{position:relative;z-index:2;margin:6px}
+.cta .btn-ghost{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)}
+.cta .btn-ghost:hover{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.5)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer.site-footer{background:#0b1f3a;color:#9fb3cc;padding:58px 0 26px;margin-top:0}
+footer.site-footer h5{color:#fff;font-size:15px;margin-bottom:16px;letter-spacing:.02em}
+footer.site-footer a{color:#9fb3cc;font-size:14.2px;display:block;margin-bottom:9px}
+footer.site-footer a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:22px;font-size:13.4px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-brand .brand-logo{background:linear-gradient(135deg,var(--accent),var(--teal))}
+
+/* ============================================================
+   BOTÓN SUBIR
+   ============================================================ */
+#toTop{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;border:0;
+  background:var(--navy);color:#fff;font-size:19px;display:grid;place-items:center;
+  box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.3s;z-index:900;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--accent);transform:translateY(-4px)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:991.98px){
+  .hero{padding:72px 0 80px}
+  .hero-panel{margin-top:44px}
+  .section{padding:70px 0}
+  .navbar-collapse{background:#fff;border-radius:14px;padding:14px;margin-top:12px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .nav-link{padding:10px 14px!important;margin-bottom:2px}
+  .navbar .btn-corp{width:100%;justify-content:center;margin-top:10px}
+}
+@media (max-width:767.98px){
+  body{font-size:15.4px}
+  .hero{padding:56px 0 64px}
+  .hero-stats{gap:24px;padding-top:26px;margin-top:32px}
+  .hero-stats .st b{font-size:1.5rem}
+  .section{padding:54px 0}
+  .section-head{margin-bottom:36px}
+  .card-corp,.topic,.practice-shell{padding:22px}
+  .case-strip{padding:24px}
+  .quiz-body,.quiz-head{padding:20px}
+  .chat-window{height:360px;padding:16px}
+  .msg{max-width:92%}
+  .cta{padding:42px 24px}
+  .flow-arrow{transform:rotate(90deg)}
+  .flow-node{min-width:100%}
+  .table-corp{font-size:13.4px}
+  .table-corp th,.table-corp td{padding:10px 11px}
+}
+@media (max-width:575.98px){
+  .container-x{padding-inline:17px}
+  .hero h1{font-size:1.85rem}
+  .brand-text span{display:none}
+  .btn-corp,.btn-ghost,.btn-accent{padding:10px 17px;font-size:14px}
+  .trust-items{gap:22px}
+}
+
+@media print{
+  .navbar,#toTop,#readProgress,.btn-send,.suggest{display:none!important}
+  body{background:#fff}
+  .hero{background:#0b1f3a!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* Accesibilidad: foco visible */
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="readProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container-x d-flex align-items-center">
+    <a class="navbar-brand d-flex align-items-center gap-3 me-auto" href="#inicio">
+      <div class="brand-logo">O</div>
+      <div class="brand-text">
+        <strong>ERP&nbsp;Tutor&nbsp;IA</strong>
+        <span>Sistemas ERP · Odoo</span>
+      </div>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#erp">¿Qué es un ERP?</a></li>
+        <li class="nav-item"><a class="nav-link" href="#modulos">Módulos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#conecta">Datos conectados</a></li>
+        <li class="nav-item"><a class="nav-link" href="#odoo">Empezar con Odoo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tutor">Tutor IA</a></li>
+        <li class="nav-item"><a class="nav-link" href="#practica">Práctica</a></li>
+        <li class="nav-item"><a class="nav-link" href="#preguntas">FAQ</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn btn-corp" href="#tutor"><i class="bi bi-stars"></i> Preguntar a la IA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="inicio">
+  <div class="container-x">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <span class="eyebrow"><span class="dot"></span> Proyecto 6 · Sistemas ERP con Odoo</span>
+        <h1>Aprende <span class="hl">sistemas ERP</span> con un tutor de Inteligencia Artificial</h1>
+        <p class="lead">
+          Descubre cómo un ERP conecta las ventas, las compras, el inventario y la contabilidad
+          de una empresa en un solo sistema. Aprende con ejemplos salvadoreños, preguntas guiadas
+          y prácticas que se corrigen solas.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#erp" class="btn btn-corp"><i class="bi bi-play-circle"></i> Empezar a aprender</a>
+          <a href="#tutor" class="btn btn-ghost" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.3)">
+            <i class="bi bi-chat-dots"></i> Hablar con el tutor
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="st"><b>4</b><span>Secciones de estudio</span></div>
+          <div class="st"><b>5</b><span>Preguntas de quiz</span></div>
+          <div class="st"><b>24/7</b><span>Tutor disponible</span></div>
+          <div class="st"><b>100%</b><span>Responsive</span></div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-panel">
+          <div class="hp-head">
+            <div class="hp-avatar"><i class="bi bi-cpu"></i></div>
+            <div>
+              <div style="font-family:'Plus Jakarta Sans';font-weight:800;color:var(--navy);font-size:15px">Tutor ERP · IA</div>
+              <div style="font-size:12.4px;color:var(--muted)">EduIA · conectado</div>
+            </div>
+          </div>
+          <div class="hp-line"><div class="hp-bubble">Hola 👋 Soy tu tutor de ERP. ¿Quieres que empecemos con un ejemplo de «Distribuidora El Salvador»?</div></div>
+          <div class="hp-line"><div class="hp-bubble me">Sí, ¿qué pasa cuando vendemos 50 sacos de café?</div></div>
+          <div class="hp-line"><div class="hp-bubble">¡Excelente pregunta! En Odoo, al confirmar esa venta, el inventario baja 50 unidades y se genera la factura automáticamente. Vamos paso a paso…</div></div>
+          <div class="typing" style="margin-top:6px"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== TRUST ===================== -->
+<div class="trust">
+  <div class="container-x">
+    <div class="d-flex flex-column align-items-center gap-3">
+      <small>Contenido alineado al módulo de Sistemas ERP</small>
+      <div class="trust-items">
+        <span>Odoo</span><span>Ventas</span><span>Compras</span><span>Inventario</span><span>Contabilidad</span><span>CRM</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== QUÉ ES UN ERP ===================== -->
+<section class="section" id="erp">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Sección 1</span>
+      <h2>¿Qué es un ERP y qué problemas resuelve?</h2>
+      <p>Un ERP (Enterprise Resource Planning o «planificación de recursos empresariales») es un sistema que reúne en un solo lugar todas las áreas de una empresa para que compartan la misma información.</p>
+    </div>
+
+    <div class="case-strip reveal">
+      <div class="cs-ico"><i class="bi bi-shop"></i></div>
+      <div>
+        <h3>Ejemplo salvadoreño: «Distribuidora El Salvador, S.A. de C.V.»</h3>
+        <p>Vende productos de consumo a pulperías y tiendas de barrio en San Salvador, Santa Ana y San Miguel. Tiene 3 bodegas, 12 vendedores y factura al día. Antes anotaba todo en cuadernos y hojas de Excel separadas.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card-corp">
+          <div class="icon-box"><i class="bi bi-diagram-3"></i></div>
+          <h3>Antes: información dispersa</h3>
+          <p>Ventas en un cuaderno, inventario en Excel, facturas en otro archivo. Nadie sabía el dato real y siempre había diferencias al cerrar el mes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#effaf5;color:var(--green)"><i class="bi bi-check2-circle"></i></div>
+          <h3>Después: un solo sistema</h3>
+          <p>Todo vive en la misma base de datos. Cuando se vende, el inventario y la contabilidad se actualizan automáticamente y al instante.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#fff8ec;color:var(--amber)"><i class="bi bi-eye"></i></div>
+          <h3>Problema 1: no ver el negocio</h3>
+          <p>El dueño no sabía cuánto café quedaba en bodega ni cuánto había vendido de verdad hasta que llegaba el cierre de mes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#fef2f2;color:var(--red)"><i class="bi bi-arrow-repeat"></i></div>
+          <h3>Problema 2: trabajo repetido</h3>
+          <p>La misma venta se escribía tres veces: en el cuaderno del vendedor, en la factura y en el control de inventario. Errores y tiempo perdido.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice tip reveal">
+      <i class="bi bi-lightbulb"></i>
+      <div><b>Idea clave:</b> un ERP no es «un programa más». Es una forma de trabajar donde cada área alimenta a las demás con datos correctos y en tiempo real. Se dice que el ERP es el «cerebro» ordenado de la empresa.</div>
+    </div>
+
+    <div class="topic reveal">
+      <div class="topic-head">
+        <div class="topic-num">1</div>
+        <div>
+          <h3>Beneficios concretos de usar un ERP</h3>
+          <p class="sub">Lo que cambia en una empresa real como la Distribuidora El Salvador</p>
+        </div>
+      </div>
+      <ul>
+        <li><b>Un solo dato verdadero:</b> si el inventario dice 320 sacos de café, ese número es el mismo que ven ventas, compras y contabilidad.</li>
+        <li><b>Menos errores humanos:</b> los datos se capturan una sola vez y el sistema los reparte solo.</li>
+        <li><b>Decisiones con información:</b> el gerente puede ver qué producto se vende más en Santa Ana esta semana, sin esperar al cierre de mes.</li>
+        <li><b>Ahorro de tiempo:</b> facturar, descontar inventario y registrar el ingreso ocurre en un clic, no en tres pasos manuales.</li>
+        <li><b>Trazabilidad:</b> se puede rastrear el historial completo de un cliente o de un producto, desde la compra hasta la factura.</li>
+      </ul>
+      <div class="mt-3">
+        <span class="chip on">Ventas</span><span class="chip on">Inventario</span><span class="chip on">Contabilidad</span><span class="chip on">Compras</span><span class="chip">RRHH</span><span class="chip">CRM</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MÓDULOS ===================== -->
+<section class="section section-soft" id="modulos">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Sección 2</span>
+      <h2>Módulos principales: ventas, compras, inventario y contabilidad</h2>
+      <p>Un ERP está dividido en módulos. Cada módulo atiende un área de la empresa, pero todos comparten la misma base de datos. Estos son los cuatro que toda empresa necesita al inicio.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 reveal">
+        <div class="card-corp">
+          <div class="icon-box"><i class="bi bi-cart-check"></i></div>
+          <h3>Módulo de Ventas (Sales)</h3>
+          <p>Gestiona cotizaciones, pedidos de clientes y facturas. Aquí empieza el recorrido cuando un cliente de la pulpería «Doña Marta» pide 20 cajas de jabón.</p>
+          <ul style="margin-top:14px;padding-left:20px;font-size:14.4px">
+            <li>Cotización → Pedido → Factura</li>
+            <li>Precios por lista o por cliente</li>
+            <li>Historial de compras de cada cliente</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#effaf5;color:var(--green)"><i class="bi bi-box-seam"></i></div>
+          <h3>Módulo de Inventario (Inventory)</h3>
+          <p>Controla existencias por producto y por bodega. Sabe cuánto hay en San Salvador, cuánto en Santa Ana y avisa cuando un producto está por agotarse.</p>
+          <ul style="margin-top:14px;padding-left:20px;font-size:14.4px">
+            <li>Entradas, salidas y traslados entre bodegas</li>
+            <li>Alertas de stock mínimo</li>
+            <li>Kardex: historial de movimientos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#fff8ec;color:var(--amber)"><i class="bi bi-truck"></i></div>
+          <h3>Módulo de Compras (Purchase)</h3>
+          <p>Administra las compras a proveedores. Cuando hace falta café, se genera una orden de compra y, al recibirla, entra solo al inventario.</p>
+          <ul style="margin-top:14px;padding-left:20px;font-size:14.4px">
+            <li>Órdenes de compra a proveedores</li>
+            <li>Recepción de mercadería</li>
+            <li>Cuentas por pagar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 reveal">
+        <div class="card-corp">
+          <div class="icon-box" style="background:#eef2ff;color:#4f46e5"><i class="bi bi-cash-coin"></i></div>
+          <h3>Módulo de Contabilidad (Accounting)</h3>
+          <p>Registra el dinero que entra y sale. Cada factura de venta o compra genera su asiento contable automáticamente, sin escribir nada a mano.</p>
+          <ul style="margin-top:14px;padding-left:20px;font-size:14.4px">
+            <li>Facturación y libros contables</li>
+            <li>Impuestos y reportes</li>
+            <li>Estado de resultados en tiempo real</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice info reveal mt-4">
+      <i class="bi bi-info-circle"></i>
+      <div><b>Comparación rápida:</b> imagina que la empresa es un cuerpo humano. Ventas es la boca que pide, Compras es el brazo que trae, Inventario es el estómago que guarda y Contabilidad es el cerebro que lleva las cuentas. Ninguno funciona bien solo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DATOS CONECTADOS ===================== -->
+<section class="section" id="conecta">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Sección 3</span>
+      <h2>Cómo se conectan los datos entre módulos</h2>
+      <p>Este es el corazón de un ERP. Una sola venta puede mover tres módulos a la vez. Veamos el recorrido completo con un caso real.</p>
+    </div>
+
+    <div class="sample-scenario reveal">
+      <b>Caso:</b> La pulpería «Doña Marta», en Soyapango, pide <b>50 sacos de café</b> a Distribuidora El Salvador. La venta se ingresa el lunes a las 9:00 a.m.
+    </div>
+
+    <div class="flow reveal">
+      <div class="flow-node"><i class="bi bi-file-earmark-text"></i><b>1. Ventas</b><small>Se crea y confirma el pedido de 50 sacos</small></div>
+      <i class="bi bi-arrow-right flow-arrow"></i>
+      <div class="flow-node"><i class="bi bi-box-seam"></i><b>2. Inventario</b><small>El stock baja automáticamente de 320 a 270 sacos</small></div>
+      <i class="bi bi-arrow-right flow-arrow"></i>
+      <div class="flow-node"><i class="bi bi-receipt"></i><b>3. Facturación</b><small>Se genera la factura con IVA y se envía al cliente</small></div>
+      <i class="bi bi-arrow-right flow-arrow"></i>
+      <div class="flow-node"><i class="bi bi-cash-coin"></i><b>4. Contabilidad</b><small>Se registra el ingreso y la cuenta por cobrar</small></div>
+    </div>
+
+    <div class="notice warn reveal">
+      <i class="bi bi-exclamation-triangle"></i>
+      <div><b>¿Qué pasaría sin ERP?</b> Habría que anotar la venta en el cuaderno, buscar el inventario en un Excel, escribir la factura a mano y luego pasarla al contador. Cuatro pasos, más tiempo y más chance de equivocarse con las cantidades.</div>
+    </div>
+
+    <div class="topic reveal">
+      <div class="topic-head">
+        <div class="topic-num">3</div>
+        <div>
+          <h3>Antes y después: la misma venta</h3>
+          <p class="sub">Esta tabla resume por qué el ERP ahorra tiempo y evita errores</p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table-corp">
+          <thead>
+            <tr><th>Paso de la venta</th><th>Sin ERP (cuaderno y Excel)</th><th>Con ERP (Odoo)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Registrar el pedido</td><td>Se anota a mano en el cuaderno del vendedor</td><td>Se crea el pedido en el módulo de Ventas</td></tr>
+            <tr><td>Actualizar inventario</td><td>Se resta a mano en la hoja de Excel (y a veces se olvida)</td><td>El sistema resta 50 sacos solo, al confirmar</td></tr>
+            <tr><td>Emitir la factura</td><td>Se llena el talonario y se calcula el IVA a mano</td><td>La factura se genera automáticamente con el IVA</td></tr>
+            <tr><td>Registrar el ingreso</td><td>El contador lo pasa después, a fin de mes</td><td>El asiento contable se crea en el mismo momento</td></tr>
+            <tr><td>Tiempo total</td><td>Entre 15 y 20 minutos por venta</td><td>Menos de 2 minutos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ODOO ===================== -->
+<section class="section section-soft" id="odoo">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Sección 4</span>
+      <h2>Cómo empezar con Odoo: empresa de prueba y primeros datos</h2>
+      <p>Odoo es uno de los ERP más usados del mundo y tiene una versión gratuita ideal para aprender. Estos son los pasos para crear tu empresa de prueba y cargar los primeros datos.</p>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-lg-4 reveal">
+        <div class="card-corp" style="border-left:4px solid var(--accent)">
+          <div class="icon-box"><i class="bi bi-1-circle"></i></div>
+          <h3>Paso 1 · Crear la cuenta</h3>
+          <p>Entra al sitio oficial de Odoo y crea una base de datos de prueba gratuita. Ponle un nombre claro, por ejemplo <b>distribuidora-el-salvador</b>. Acepta el correo de confirmación.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 reveal">
+        <div class="card-corp" style="border-left:4px solid var(--teal)">
+          <div class="icon-box" style="background:#effaf5;color:var(--green)"><i class="bi bi-2-circle"></i></div>
+          <h3>Paso 2 · Configurar la empresa</h3>
+          <p>En Ajustes, escribe el nombre de la empresa, la moneda (USD para El Salvador), el país y el logo. Configura también la zona horaria correcta.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 reveal">
+        <div class="card-corp" style="border-left:4px solid var(--gold)">
+          <div class="icon-box" style="background:#fff8ec;color:var(--amber)"><i class="bi bi-3-circle"></i></div>
+          <h3>Paso 3 · Instalar los módulos</h3>
+          <p>Activa los cuatro módulos base: Ventas, Inventario, Compras y Contabilidad. Odoo los conecta entre sí automáticamente al instalarlos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7 reveal">
+        <div class="card-corp h-100">
+          <div class="icon-box"><i class="bi bi-upload"></i></div>
+          <h3>Paso 4 · Cargar los primeros datos</h3>
+          <p>Ya con los módulos listos, carga información real de práctica:</p>
+          <ul style="margin-top:14px;padding-left:20px;font-size:14.6px">
+            <li><b>Productos:</b> «Café molido 1 kg», «Jabón de baño», «Caja de leche», con su precio y su costo.</li>
+            <li><b>Clientes:</b> «Pulpería Doña Marta», «Tienda El Progreso», «Comedor La Bendición».</li>
+            <li><b>Proveedores:</b> «Beneficio Santa Ana», «Distribuidora de Lácteos».</li>
+            <li><b>Bodegas:</b> Bodega Central (San Salvador) y Bodega Santa Ana.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal">
+        <div class="card-corp h-100">
+          <div class="icon-box" style="background:#eef2ff;color:#4f46e5"><i class="bi bi-5-circle"></i></div>
+          <h3>Paso 5 · Hacer la primera venta</h3>
+          <p>Crea un pedido de 50 sacos de café para «Pulpería Doña Marta», confírmalo y observa cómo se actualizan solos el inventario, la factura y la contabilidad. ¡Ese es el ERP funcionando!</p>
+          <div class="notice tip" style="margin-top:18px">
+            <i class="bi bi-lightbulb"></i>
+            <div><b>Consejo:</b> repite la venta tres veces y mira el kardex del producto. Verás el historial completo de movimientos, igual que en una empresa real.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice info reveal mt-4">
+      <i class="bi bi-info-circle"></i>
+      <div><b>Glosario rápido:</b> <b>Kardex</b> = historial de movimientos de un producto. <b>Orden de compra</b> = documento para pedir mercadería a un proveedor. <b>Asiento contable</b> = registro de una operación en la contabilidad. <b>Stock mínimo</b> = cantidad mínima que debe haber antes de reordenar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TUTOR IA ===================== -->
+<section class="section" id="tutor">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Tutor de Inteligencia Artificial</span>
+      <h2>Pregúntale lo que quieras sobre ERP y Odoo</h2>
+      <p>Tu tutor responde con lenguaje sencillo, usa ejemplos de empresas salvadoreñas y termina con una pregunta para comprobar que entendiste. Escribe tu duda y presiona enviar.</p>
+    </div>
+
+    <div class="tutor-shell reveal">
+      <div class="tutor-top">
+        <div class="tt-avatar"><i class="bi bi-robot"></i></div>
+        <div>
+          <b>Tutor ERP · Odoo</b>
+          <small>EduIA · Sistemas ERP · Siempre disponible</small>
+        </div>
+        <div class="tutor-status"><i class="bi bi-lightning-charge-fill"></i> <span id="tutorModeLabel">IA conectada</span></div>
+      </div>
+
+      <div class="chat-window" id="chatWindow" aria-live="polite">
+        <div class="msg bot">
+          <div class="av"><i class="bi bi-robot"></i></div>
+          <div class="bubble">
+            ¡Hola! 👋 Soy tu tutor de <b>sistemas ERP con Odoo</b>. Te explico con ejemplos de empresas salvadoreñas, en pasos cortos y sin complicarte.<br><br>
+            Puedes preguntarme cosas como:<br>
+            • ¿Qué es un ERP?<br>
+            • ¿Qué pasa cuando vendo algo?<br>
+            • ¿Cuántos módulos tiene Odoo?<br><br>
+            ¿Por dónde empezamos? 🚀
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-inputbar">
+        <div class="suggest" id="suggestions">
+          <button type="button" data-q="¿Qué es un ERP y para qué sirve?">¿Qué es un ERP?</button>
+          <button type="button" data-q="¿Qué pasa en el sistema cuando vendo un producto?">¿Qué pasa cuando vendo?</button>
+          <button type="button" data-q="¿Cuáles son los módulos principales de un ERP?">Módulos principales</button>
+          <button type="button" data-q="¿Cómo creo una empresa de prueba en Odoo?">Empezar con Odoo</button>
+          <button type="button" data-q="¿Cuál es la diferencia entre inventario y contabilidad?">Inventario vs contabilidad</button>
+        </div>
+        <form class="chat-form" id="chatForm">
+          <textarea id="chatInput" placeholder="Escribe tu pregunta sobre ERP u Odoo…" rows="1" aria-label="Escribe tu pregunta"></textarea>
+          <button class="btn-send" type="submit" id="sendBtn" aria-label="Enviar"><i class="bi bi-send-fill"></i></button>
+        </form>
+        <div class="chat-meta">
+          <i class="bi bi-lightning-charge-fill"></i>
+          <span>Conectado a Groq · Llama 3.3</span>
+          <span class="key-badge on" id="keyBadge"><i class="bi bi-circle-fill"></i> IA conectada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRÁCTICA + QUIZ ===================== -->
+<section class="section section-soft" id="practica">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Mini práctica</span>
+      <h2>Pon a prueba lo que aprendiste</h2>
+      <p>Primero resuelve el ejercicio de módulos y recibe retroalimentación inmediata. Después contesta el quiz de 5 preguntas para ver tu puntaje.</p>
+    </div>
+
+    <!-- EJERCICIO -->
+    <div class="practice-shell reveal mb-5">
+      <h3 style="font-size:1.3rem;margin-bottom:6px"><i class="bi bi-pencil-square" style="color:var(--accent)"></i> Ejercicio guiado: del pedido a la factura</h3>
+      <p style="font-size:14.8px">Describe con tus palabras una venta y explica <b>qué módulos de Odoo participan y en qué orden</b>. Usa al menos estas ideas: pedido o venta, inventario, factura y contabilidad.</p>
+
+      <div class="sample-scenario">
+        <b>Situación sugerida:</b> La tienda «El Progreso», en Santa Ana, pide <b>30 cajas de leche</b>. Describe qué pasa en el sistema desde que se crea el pedido hasta que queda registrado el dinero.<br>
+        <span style="color:var(--muted);font-size:13.6px">Palabras clave que puedes usar: <code>venta</code> <code>pedido</code> <code>confirmar</code> <code>inventario</code> <code>stock</code> <code>factura</code> <code>IVA</code> <code>contabilidad</code> <code>ingreso</code> <code>kardex</code></span>
+      </div>
+
+      <textarea id="practicaTexto" placeholder="Escribe aquí tu respuesta… Por ejemplo: Primero entro al módulo de Ventas y creo el pedido de 30 cajas de leche…"></textarea>
+
+      <div class="d-flex flex-wrap gap-3 mt-3">
+        <button class="btn btn-accent" id="btnCorregir"><i class="bi bi-check2-square"></i> Corregir mi respuesta</button>
+        <button class="btn btn-ghost" id="btnEjemplo"><i class="bi bi-eye"></i> Ver un ejemplo</button>
+        <button class="btn btn-ghost" id="btnLimpiar"><i class="bi bi-eraser"></i> Limpiar</button>
+      </div>
+
+      <div class="fb-box" id="fbBox">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <h4 id="fbTitle" class="mb-0"><i class="bi bi-clipboard-check"></i> Retroalimentación</h4>
+          <div class="text-end"><span class="fb-score" id="fbScore">0</span><span style="color:var(--muted);font-size:14px"> / 100</span></div>
+        </div>
+        <ul class="check-list" id="fbList"></ul>
+        <div id="fbMsg" style="margin-top:14px;font-size:14.5px"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-shell reveal" id="quiz">
+      <div class="quiz-head">
+        <div>
+          <h3><i class="bi bi-patch-question"></i> Quiz de 5 preguntas</h3>
+          <small>Elige una opción por pregunta. Se corrige al instante.</small>
+        </div>
+        <div class="quiz-score">
+          <b id="quizScore">0/5</b>
+          <span>Puntaje</span>
+        </div>
+      </div>
+      <div class="quiz-body" id="quizBody"></div>
+      <div class="quiz-body pt-0">
+        <button class="btn btn-corp w-100 justify-content-center" id="btnQuiz"><i class="bi bi-check2-circle"></i> Revisar mis respuestas</button>
+        <div class="quiz-result" id="quizResult" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="preguntas">
+  <div class="container-x">
+    <div class="section-head reveal">
+      <span class="kicker">Preguntas frecuentes</span>
+      <h2>Dudas comunes sobre el ERP</h2>
+      <p>Las preguntas que más hacen los estudiantes antes de empezar. Toca cada una para ver la respuesta.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-9 reveal">
+        <div class="accordion" id="faqAcc">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#f1">¿Un ERP es lo mismo que un programa de contabilidad?</button></h2>
+            <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body">No. Un programa de contabilidad solo lleva las cuentas. Un ERP incluye contabilidad, pero además ventas, compras, inventario, clientes y más. Todo comparte la misma información, por eso la contabilidad se actualiza sola cuando hay una venta.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2">¿Por qué usar Odoo y no otro sistema?</button></h2>
+            <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Odoo es ideal para aprender porque tiene una versión gratuita, es de código abierto, sus módulos se instalan con un clic y funciona en el navegador. Empresas grandes usan sistemas como SAP, pero el concepto de módulos es el mismo y lo aprendido aquí se traslada.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f3">¿Puedo practicar sin pagar nada?</button></h2>
+            <div id="f3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Sí. Odoo ofrece una base de datos de prueba gratuita por tiempo limitado, perfecta para crear tu empresa ficticia, cargar productos y hacer ventas. Cuando termines, puedes exportar tus datos o crear otra base.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f4">¿Qué significa que el inventario «baja solo»?</button></h2>
+            <div id="f4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Significa que cuando confirmas una venta en Odoo, el sistema descuenta automáticamente las unidades del producto en la bodega correspondiente. No tienes que ir a otro módulo a restarlas a mano: están conectados por la misma base de datos.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f5">¿Cómo protejo la clave de mi tutor de IA?</button></h2>
+            <div id="f5" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">La clave nunca debe ir escrita en el código que se publica en GitHub. Se guarda como variable de entorno en el servidor o en el hosting (Render, Netlify, Vercel). Si la clave se filtra por error, se borra y se genera una nueva. Esta página usa ese mecanismo: el navegador nunca ve la clave.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta reveal mt-5">
+      <h2>¿Listo para dominar los sistemas ERP?</h2>
+      <p>Practica con el tutor de IA, resuelve la mini práctica y comprueba lo que aprendiste. Aprender enseñando es la mejor forma de entender.</p>
+      <a href="#tutor" class="btn btn-corp"><i class="bi bi-chat-dots"></i> Ir al tutor de IA</a>
+      <a href="#practica" class="btn btn-ghost"><i class="bi bi-pencil-square"></i> Hacer la práctica</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container-x">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="footer-brand">
+          <div class="brand-logo">O</div>
+          <div class="brand-text">
+            <strong style="color:#fff">ERP Tutor IA</strong>
+            <span style="color:#7d93ad">Sistemas ERP · Odoo</span>
+          </div>
+        </div>
+        <p style="font-size:14.4px;max-width:400px">Página educativa con tutor de Inteligencia Artificial para aprender sistemas ERP y Odoo, construida con HTML, CSS, JavaScript y Bootstrap.</p>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h5>Aprender</h5>
+        <a href="#erp">¿Qué es un ERP?</a>
+        <a href="#modulos">Módulos principales</a>
+        <a href="#conecta">Datos conectados</a>
+        <a href="#odoo">Empezar con Odoo</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h5>Practicar</h5>
+        <a href="#tutor">Tutor de IA</a>
+        <a href="#practica">Mini práctica</a>
+        <a href="#quiz">Quiz de 5 preguntas</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+      </div>
+      <div class="col-lg-3">
+        <h5>Proyecto</h5>
+        <a href="https://github.com/pruebatable007-lab/Recu007" target="_blank" rel="noopener"><i class="bi bi-github"></i> Repositorio en GitHub</a>
+        <a href="#inicio"><i class="bi bi-house"></i> Volver al inicio</a>
+        <a href="README.md"><i class="bi bi-file-text"></i> Documentación</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ERP Tutor IA · Proyecto 6 — Sistemas ERP con Odoo · EduIA</span>
+      <span>HTML · CSS · JavaScript · Bootstrap 5 · Tutor de IA</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Volver arriba"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/tutor.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

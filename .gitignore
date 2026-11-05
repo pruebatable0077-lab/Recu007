@@ -1,0 +1,28 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (¡NUNCA subir claves!)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / temporales
+tmp/
+temp/
+dist/
+.cache/
