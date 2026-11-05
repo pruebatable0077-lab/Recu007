@@ -1,0 +1,26 @@
+/* ============================================================
+   styles.css
+   Proyecto 6 · Sistemas ERP con Odoo · EduIA
+   ------------------------------------------------------------
+   Los estilos principales están dentro de index.html para que
+   la página funcione incluso abriéndola directamente (sin
+   servidor). Este archivo queda disponible para ampliaciones
+   y para mantener una estructura de proyecto ordenada.
+   ============================================================ */
+
+/* Ejemplo: personalización adicional que puedes activar */
+
+/*
+.hero h1 { letter-spacing: -0.03em; }
+.card-corp { will-change: transform; }
+*/
+
+/* Impresión: ocultar elementos interactivos */
+@media print {
+  .chat-inputbar,
+  .suggest,
+  #toTop,
+  #readProgress {
+    display: none !important;
+  }
+}
